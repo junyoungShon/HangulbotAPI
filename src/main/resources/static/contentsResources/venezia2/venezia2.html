@@ -1,0 +1,72 @@
+<style>
+    .contentBg{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .startBg{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .question0{
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+    .question1 {
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+
+    .congratulateDiv{
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+
+</style>
+<script>
+
+</script>
+<div ng-controller="contentViewCtrl" class="contentBg" style="height: {{deviceHeight-(deviceHeight/8)}}px;width:{{deviceWidth}}px; background-image: url('{{bgUrl}}')";>
+    <div class="startBg" style="height: {{deviceHeight-(deviceHeight/8)}}px;width:{{deviceWidth}}px; background-image: url('{{startBgUrl}}');"
+         ngfx-fade-out="startShownAnimate" ng-hide="startShownAnimate">
+
+    </div>
+
+    <div class="question0" style="width : 33vw;height:22.88vw;
+                background-image:url('{{questionList[0].wordGuideUrl}}');
+                left:{{question0.x}}px;top:{{question0.y}}px" ngfx-swing="question0MiddleAni"
+                ngfx-zoom-out-down="questionList[0].isCorrect" ngfx-wobble="questionList[0].isInCorrect">
+    </div>
+
+    <div class="question0" style="width : 30vw;height:30vw;
+                background-image:url('{{questionList[0].wordImageUrl}}');
+                left:{{question0.x}}px;top:{{question0.y}}px" ngfx-zoom-in-down="questionList[0].isCorrect"
+         ngfx-fade-out-left-big="isFinal">
+    </div>
+
+    <div class="question1" style="width : 33vw;height:22.88vw;
+            background-image:
+            url('{{questionList[1].wordGuideUrl}}');
+            left:{{question1.x}}px;top:{{question1.y}}px;" ngfx-swing="question1MiddleAni"
+            ngfx-zoom-out-down="questionList[1].isCorrect" ngfx-wobble="questionList[1].isInCorrect">
+    </div>
+    <div class="question1" style="width : 30vw;height:30vw;
+            background-image:
+            url('{{questionList[1].wordImageUrl}}');
+            left:{{question1.x}}px;top:{{question1.y}}px;" ngfx-zoom-in-down="questionList[1].isCorrect"
+         ngfx-fade-out-left-big="isFinal">
+    </div>
+
+    <div class="congratulateDiv" style="width:{{deviceWidth/2.1}}px;height:{{deviceHeight/2}}px;
+            background-image:
+            url('{{congratulateUrl}}');
+            left:{{deviceWidth/3.8}}px;top:{{deviceHeight/4.5}}px;" ng-show="congrateStatus">
+    </div>
+
+
+</div>

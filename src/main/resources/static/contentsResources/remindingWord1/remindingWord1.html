@@ -1,0 +1,60 @@
+<style>
+    .contentBg{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .startBg{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .textDiv {
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+    .guideDiv{
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+    .congratulateDiv{
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+
+</style>
+<script>
+
+</script>
+<div ng-controller="contentViewCtrl" class="contentBg" style="height: {{deviceHeight-(deviceHeight/8)}}px;width:{{deviceWidth}}px; background-image: url('{{backgroundList[bgBgNum]}}')";>
+    <div class="startBg" style="height: {{deviceHeight-(deviceHeight/8)}}px;width:{{deviceWidth}}px; background-image: url('{{startBgUrl}}');"
+         ngfx-fade-out="startShownAnimate" ng-hide="startShownAnimate">
+    </div>
+    <div class="contentBg" style="height: {{deviceHeight-(deviceHeight/8)}}px;width:{{deviceWidth}}px; background-image: url('{{backgroundList[bgNum]}}')"
+             ngfx-fade-in="bgShown" ngfx-speed="slow" ngfx-default="hide" ng-show="bgShown">
+
+
+    </div>
+        <div class="textDiv" style="width : {{deviceWidth/1.82}}px;height: {{deviceHeight/6.15}}px;
+                background-image:url('{{textList[currentAnswerIndex]}}');
+                left:{{deviceWidth/4.41}}px;top:{{deviceHeight/18}}px" ngfx-fade-in-right-big="textShown" ngfx-speed="slow" ngfx-default="hide" ng-show="textShown">
+        </div>
+
+        <div class="guideDiv" style="width:{{deviceWidth/2.1}}px;height:{{deviceHeight/2}}px;
+            background-image:
+            url('{{guideList[currentAnswerIndex]}}');
+            left:{{deviceWidth/3.8}}px;top:{{deviceHeight/4.5}}px;" ngfx-tada="guideShown" ngfx-infinite ngfx-speed="slow" ng-show="guideShown">
+            </div>
+
+        <div class="congratulateDiv" style="width:{{deviceWidth/2.1}}px;height:{{deviceHeight/2}}px;
+            background-image:
+            url('{{congratulateUrl}}');
+            left:{{deviceWidth/3.8}}px;top:{{deviceHeight/4.5}}px;" ng-show="congrateStatus">
+        </div>
+
+
+</div>

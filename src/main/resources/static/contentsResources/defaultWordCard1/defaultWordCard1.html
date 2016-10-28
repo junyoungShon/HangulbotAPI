@@ -1,0 +1,61 @@
+<style>
+    .contentBg{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .startBg{
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .textDiv {
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+    .guideDiv{
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+    .congratulateDiv{
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        position: fixed;
+    }
+
+</style>
+<script>
+
+</script>
+<div ng-controller="contentViewCtrl" class="contentBg" style="height: {{deviceHeight-(deviceHeight/8)}}px;width:{{deviceWidth}}px;
+    background-image: url('{{bgUrl}}')";>
+
+    <div class="startBg" style="width: 50vw;height:50vw;margin-left: 25vw;padding-top: 5vh; background-image: url('{{startBgUrl}}');"
+         ngfx-fade-out="startShownAnimate" ng-hide="startShownAnimate">
+
+    </div>
+
+        <div class="textDiv" style="width : 45vw;height: 50vh;
+                background-image:url('{{imageList[currentAnswerIndex]}}');
+                left:8vw;top:25vh" ngfx-bounce="textShown" ngfx-swing="correct" ngfx-shake="incorrect" ngfx-infinite ngfx-speed="slow" ng-show="textShown">
+        </div>
+
+        <div class="guideDiv" style="width : 45vw;height: 50vh;
+            background-image:
+            url('{{guideList[currentAnswerIndex]}}');
+            left:50vw;top:25vh" ngfx-fadeIn ="guideShown" ngfx-rubberBand="guideShown" ngfx-swing="correct" ngfx-shake="incorrect" ngfx-infinite ngfx-speed="slow"
+             ng-show="guideShown">
+        </div>
+
+
+    <div class="congratulateDiv" style="width:80vw;height:80vh;
+            background-image:
+            url('{{congratulateUrl}}');
+            left:15vw;top:15vh;" ng-show="congrateStatus">
+        </div>
+
+
+</div>
